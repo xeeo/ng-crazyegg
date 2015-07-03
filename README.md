@@ -1,6 +1,6 @@
-# Angular CrazyEggf Module
+# Angular CrazyEgg Module
 
-A simple wrapper to pull in the CrazyEgg snippet with an AngularJS-based application. This structure is based on ng-optimizely (https://github.com/jacopotarantino/ng-optimizely)
+A simple wrapper to pull in the CrazyEgg snippet with an AngularJS-based application. This structure is based on [ng-optimizely](https://github.com/jacopotarantino/ng-optimizely)
 
 This module provides only a simple API to download the CrazyEgg snippet onto the page. The `loadProject` method(usage described below) returns a promise so you can delay execution until after the snippet has loaded.
 
