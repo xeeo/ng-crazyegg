@@ -27,24 +27,9 @@ angular.module('app')
 }]);
 ```
 
-Another way to load the library and avoid a FOUC is to use a router like [ui-router](https://github.com/angular-ui/ui-router) that allows you to defer pageload until after all of a given route's dependencies have been loaded. The `loadProject` method returns a promise so you can use it with any give plugin or framework but ui-router is a really good choice for most projects. Important is that this needs to be resolved for every .state.
-
-```javascript
-app.config(function($stateProvider, 'ng-crazyegg') {
-  $stateProvider.state('app.dashboard', {
-    // ... other stuff ...
-    resolve: {
-      crazyegg: function(crazyegg) {
-        crazyegg.loadProject('12345678');
-      }
-    }
-  });
-});
-```
-
 ## Test
 
-TODO...
+I can say TODO ... but I won't do them .... sooooo :)
 
 ## License
 

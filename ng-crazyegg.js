@@ -1,6 +1,6 @@
 angular.module('ng-crazyegg', ['ng'])
-	.factory('crazyegg', ['$rootScope', '$window', '$timeout', '$q'
-		, function($rootScope, $window, $timeout, $q) {
+	.factory('crazyegg', ['$rootScope', '$window', '$timeout',
+		function($rootScope, $window, $timeout, $q) {
 		    var service = $window.crazyegg = $window.crazyegg || {};
 
 		    service.loadProject = function(key) {
@@ -11,8 +11,7 @@ angular.module('ng-crazyegg', ['ng'])
 					element.parentNode.removeChild(element);
 				}
 
-				var deferred = $q.defer();
-
+				/** create new script **/
 				key = key + '';
 				var scriptPath = key.substr(0, 4) + '/' + key.substr(4, 4);
 
@@ -21,14 +20,11 @@ angular.module('ng-crazyegg', ['ng'])
 				script.id = 'crazyegg-js';
 				script.async = true;
 				script.src = 'https://script.crazyegg.com/pages/scripts/' + scriptPath + '.js?' + (new Date().getTime());
-				script.onload = script.onreadystatechange = function () {
-					deferred.resolve($window.crazyegg);
-				};
+				script.onload = script.onreadystatechange = function () {};
 
+				/** add new script **/
 				var first = document.getElementsByTagName('script')[0];
 				first.parentNode.insertBefore(script, first);
-
-		      	return deferred.promise;
 		    };
 
 			service.initCrazyEgg = function(accountKey) {
@@ -42,4 +38,5 @@ angular.module('ng-crazyegg', ['ng'])
 			};
 
 		    return service;
-}]);
+		}
+	]);
